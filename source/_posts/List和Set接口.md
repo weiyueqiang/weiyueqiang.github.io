@@ -1,7 +1,7 @@
 ---
 title: List和Set接口
 date: 2019-08-07 11:45:43
-tags:
+tags: 笔记 总结
 ---
 
 本文主要记录Collection中的常用几个子类（List集合、Set集合）。
