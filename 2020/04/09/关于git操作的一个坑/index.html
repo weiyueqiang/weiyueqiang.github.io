@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://weiyueqiang.github.io">
-  <title>Archives: 2019/8 | weiyueqiang的博客</title>
+  <title>关于git操作的一个坑 | weiyueqiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="努力进化的codewang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="weiyueqiang的博客">
-<meta property="og:url" content="http://weiyueqiang.github.io/archives/2019/08/index.html">
+  <meta name="description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑  问题重现 我在一个新文件夹git init了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。 如下：     问题分析与解决 在进行git push 的时候，需要确定2个事情。1、本地分支和远程分支是否有关联2、本地分支的名称和远">
+<meta name="keywords" content="踩坑 踩大坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于git操作的一个坑">
+<meta property="og:url" content="http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/index.html">
 <meta property="og:site_name" content="weiyueqiang的博客">
-<meta property="og:description" content="努力进化的codewang">
+<meta property="og:description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑  问题重现 我在一个新文件夹git init了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。 如下：     问题分析与解决 在进行git push 的时候，需要确定2个事情。1、本地分支和远程分支是否有关联2、本地分支的名称和远">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/%E5%85%B3%E4%BA%8Egit%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/%E9%97%AE%E9%A2%98.png">
+<meta property="og:updated_time" content="2020-04-09T08:07:59.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weiyueqiang的博客">
-<meta name="twitter:description" content="努力进化的codewang">
+<meta name="twitter:title" content="关于git操作的一个坑">
+<meta name="twitter:description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑  问题重现 我在一个新文件夹git init了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。 如下：     问题分析与解决 在进行git push 的时候，需要确定2个事情。1、本地分支和远程分支是否有关联2、本地分支的名称和远">
+<meta name="twitter:image" content="http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/%E5%85%B3%E4%BA%8Egit%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/%E9%97%AE%E9%A2%98.png">
   
     <link rel="alternative" href="/atom.xml" title="weiyueqiang的博客" type="application/atom+xml">
   
@@ -153,98 +157,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于git操作的一个坑" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/07/学习新技术方法/" class="archive-article-date">
-  	<time datetime="2019-08-07T06:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/07/学习新技术方法/">学习一门新技术</a>
+    <h1 class="article-title" itemprop="name">
+      关于git操作的一个坑
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/09/关于git操作的一个坑/" class="archive-article-date">
+  	<time datetime="2020-04-09T07:52:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="git在push时建立本地分支和远程分支的联系"><a href="#git在push时建立本地分支和远程分支的联系" class="headerlink" title="git在push时建立本地分支和远程分支的联系"></a>git在push时建立本地分支和远程分支的联系</h1><p>这个问题困扰了我一天，真大坑</p>
+<ul>
+<li><p>问题重现</p>
+<p>我在一个新文件夹<code>git init</code>了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。</p>
+<p>如下：</p>
+<p><img src="%E5%85%B3%E4%BA%8Egit%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/%E9%97%AE%E9%A2%98.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>问题分析与解决</p>
+<p>在进行git push 的时候，需要确定2个事情。<br>1、本地分支和远程分支是否有关联<br>2、本地分支的名称和远程分支的名称是否一致。</p>
+<p>如果本地分支和远程分支没有关联，那么最好关联上(可以通过<code>git branch -avv</code>命令来查看)，因为这样在后续方面进行查找关联关系，如果多个功能并行开发的话，会产生找不到对应分支的问题。</p>
+<p>当本地分支和远程分支有关联关系的时候，这时候要看本地分支和远程分支是否名称相同。<br>如果名称相同，那么可以直接这样提交 git push 如果名称不同，需要这样提交</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push Blog master:Hexo</span><br></pre></td></tr></table></figure>
+
+<p>或者可以同时将本地和远程分支关联：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream Blog master:Hexo</span><br></pre></td></tr></table></figure>
+
+<p>或者可以创建分支时就将他们关联：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b newdev Blog/Hexo</span><br></pre></td></tr></table></figure>
+
+<p><strong>当然，如果你能保持远程和本地分支名相同的话，就没有这些p事了。</strong></p>
+</li>
+</ul>
+<p>  <a href="https://blog.csdn.net/wild46cat/java/article/details/80148148" target="_blank" rel="noopener">参考链接</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习方法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">踩坑 踩大坑</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/07/List和Set接口/" class="archive-article-date">
-  	<time datetime="2019-08-07T03:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/09/搭建博客过程记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/07/List和Set接口/">List和Set接口</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">笔记 总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -267,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
