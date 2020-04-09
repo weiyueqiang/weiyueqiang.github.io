@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://weiyueqiang.github.io">
   <title>关于git操作的一个坑 | weiyueqiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑  问题重现 我在一个新文件夹git init了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。 如下：     问题分析与解决 在进行git push 的时候，需要确定2个事情。1、本地分支和远程分支是否有关联2、本地分支的名称和远">
+  <meta name="description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑">
 <meta name="keywords" content="踩坑 踩大坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于git操作的一个坑">
 <meta property="og:url" content="http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/index.html">
 <meta property="og:site_name" content="weiyueqiang的博客">
-<meta property="og:description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑  问题重现 我在一个新文件夹git init了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。 如下：     问题分析与解决 在进行git push 的时候，需要确定2个事情。1、本地分支和远程分支是否有关联2、本地分支的名称和远">
+<meta property="og:description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/%E5%85%B3%E4%BA%8Egit%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/%E9%97%AE%E9%A2%98.png">
-<meta property="og:updated_time" content="2020-04-09T08:07:59.192Z">
+<meta property="og:updated_time" content="2020-04-09T08:11:01.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于git操作的一个坑">
-<meta name="twitter:description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑  问题重现 我在一个新文件夹git init了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。 如下：     问题分析与解决 在进行git push 的时候，需要确定2个事情。1、本地分支和远程分支是否有关联2、本地分支的名称和远">
+<meta name="twitter:description" content="git在push时建立本地分支和远程分支的联系这个问题困扰了我一天，真大坑">
 <meta name="twitter:image" content="http://weiyueqiang.github.io/2020/04/09/关于git操作的一个坑/%E5%85%B3%E4%BA%8Egit%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/%E9%97%AE%E9%A2%98.png">
   
     <link rel="alternative" href="/atom.xml" title="weiyueqiang的博客" type="application/atom+xml">
@@ -178,6 +178,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="git在push时建立本地分支和远程分支的联系"><a href="#git在push时建立本地分支和远程分支的联系" class="headerlink" title="git在push时建立本地分支和远程分支的联系"></a>git在push时建立本地分支和远程分支的联系</h1><p>这个问题困扰了我一天，真大坑</p>
+<a id="more"></a>
+
 <ul>
 <li><p>问题重现</p>
 <p>我在一个新文件夹<code>git init</code>了一个本地仓库，把我远程仓库Blog的Hexo分支pull下来，然后改了几个文件，git commit 可以成功，但是git push 出错。</p>
