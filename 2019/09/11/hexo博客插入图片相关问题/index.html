@@ -16,18 +16,17 @@
 <meta property="og:site_name" content="weiyueqiang的博客">
 <meta property="og:description" content="本文主要介绍利用hexo搭建的博客插入图片的一系列问题，以及注意事项。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/09/11/hexo博客插入图片相关问题/test.jpg">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/test.jpg">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E9%94%99%E8%AF%AF%E7%A4%BA%E8%8C%83.gif">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/09/11/hexo博客插入图片相关问题/错误示范.gif">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E7%BD%91%E9%A1%B5%E6%BA%90%E7%A0%81.png">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_wrong.png">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_right.png">
-<meta property="og:updated_time" content="2020-04-10T01:16:23.994Z">
+<meta property="og:updated_time" content="2020-04-10T01:32:20.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客插入图片相关问题">
 <meta name="twitter:description" content="本文主要介绍利用hexo搭建的博客插入图片的一系列问题，以及注意事项。">
-<meta name="twitter:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/09/11/hexo博客插入图片相关问题/test.jpg">
+<meta name="twitter:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/test.jpg">
   
     <link rel="alternative" href="/atom.xml" title="weiyueqiang的博客" type="application/atom+xml">
   
@@ -210,11 +209,11 @@
 </ul>
 <h2 id="图片怎么引入："><a href="#图片怎么引入：" class="headerlink" title="图片怎么引入："></a>图片怎么引入：</h2><p>以<strong>想要在aaa.md中插入test.jpg</strong> 为例：</p>
 <ul>
-<li><p>方式一：利用hexo插件的标签</p>
+<li><p>方式一：利用hexo官方标签</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img test.jpg This is a test image %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>下面图片就是用这种方法引入：</p>
-<img src="/2019/09/11/hexo博客插入图片相关问题/09/11/hexo博客插入图片相关问题/test.jpg" title="girl">
+
 </li>
 <li><p>方式二：利用markdown引入图片语法</p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">This is a test image</span>](<span class="link">aaa/test.jpg</span>)</span><br></pre></td></tr></table></figure>
