@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E7%BD%91%E9%A1%B5%E6%BA%90%E7%A0%81.png">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_wrong.png">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_right.png">
-<meta property="og:updated_time" content="2020-04-10T01:45:32.877Z">
+<meta property="og:updated_time" content="2020-04-10T01:56:03.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客插入图片相关问题">
 <meta name="twitter:description" content="本文主要介绍利用hexo搭建的博客插入图片的一系列问题，以及注意事项。">
@@ -213,13 +213,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img test.jpg This is a test image %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>下面图片就是用这种方法引入：</p>
-<img src="/2019/09/11/hexo博客插入图片相关问题/09/11/hexo博客插入图片相关问题/test1.jpg" title="girl">
+<img src="//weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/09/11/hexo博客插入图片相关问题/test1.jpg" title="girl"> 
 </li>
 <li><p>方式二：利用markdown引入图片语法</p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">This is a test image</span>](<span class="link">aaa/test.jpg</span>)</span><br></pre></td></tr></table></figure>
 
 <p>下面方式就是用这种方法引入：</p>
-<p><img src="/2019/09/11/hexo博客插入图片相关问题/test2.jpg" alt="灯泡"></p>
+<p><img src="//weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/test2.jpg" alt="灯泡"></p>
 <p><strong>特别注意：</strong></p>
 <p><strong>特别注意：</strong></p>
 <p><strong>特别注意：</strong></p>
@@ -227,11 +227,11 @@
 <p>那么为什么会写成后者呢？</p>
 <p>因为你引入图片时是在选择路径，而不是自己写路径的情况下，选定出来的路径最终结果是后一种格式。</p>
 <p>给你们展示下我怎么踩坑的：</p>
-<p><img src="/2019/09/11/hexo博客插入图片相关问题/%E9%94%99%E8%AF%AF%E7%A4%BA%E8%8C%83.gif" alt></p>
+<p><img src="//weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E9%94%99%E8%AF%AF%E7%A4%BA%E8%8C%83.gif" alt></p>
 <p>哈哈，公开处刑。不过以后就记得了。</p>
 <p><strong>原因：</strong></p>
 <p>“&quot;不行的原因是hexo部署的时候，会把他当作转移字符的开头，出现一通乱码，截取部署后的部分网页源代码，前三个标签就是因为用的”\“，导致图片不能显示，后面三个标签就是用的”/“，图片可以正常显示。</p>
-<p><img src="/2019/09/11/hexo博客插入图片相关问题/%E7%BD%91%E9%A1%B5%E6%BA%90%E7%A0%81.png" alt></p>
+<p><img src="//weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E7%BD%91%E9%A1%B5%E6%BA%90%E7%A0%81.png" alt></p>
 </li>
 </ul>
 <h2 id="生成本blog时踩到的新坑"><a href="#生成本blog时踩到的新坑" class="headerlink" title="生成本blog时踩到的新坑"></a>生成本blog时踩到的新坑</h2><ul>
@@ -244,10 +244,10 @@
 <p>这个问题真是棘手，我用控制变量法一个点一个点的测试了一下午，最终发现是<strong>一个空格的问题</strong>。</p>
 <ul>
 <li><p>错误：</p>
-<p><img src="/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_wrong.png" alt></p>
+<p><img src="//weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_wrong.png" alt></p>
 </li>
 <li><p>正确：</p>
-<p><img src="/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_right.png" alt></p>
+<p><img src="//weiyueqiang.github.io/2019/09/11/hexo博客插入图片相关问题/%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_right.png" alt></p>
 </li>
 </ul>
 </li>
@@ -507,11 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">实践 踩坑</a>
+                <a href="javascript:void(0)" class="js-tag color2">踩坑 踩大坑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">踩坑 踩大坑</a>
+                <a href="javascript:void(0)" class="js-tag color1">实践 踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
