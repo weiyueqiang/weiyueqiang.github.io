@@ -40,7 +40,7 @@ tags: 实践 踩坑
 
 以**想要在aaa.md中插入test.jpg** 为例：
 
-- 方式一：利用hexo插件的标签
+- 方式一：利用hexo官方标签
 
   ```
   {% asset_img test.jpg This is a test image %}
@@ -48,7 +48,7 @@ tags: 实践 踩坑
 
   下面图片就是用这种方法引入：
 
-  {% asset_img test.jpg girl %}
+  {% asset_img test1.jpg girl %}
 
 - 方式二：利用markdown引入图片语法
 
@@ -58,7 +58,7 @@ tags: 实践 踩坑
 
   下面方式就是用这种方法引入：
 
-  ![girl](hexo博客插入图片相关问题/test.jpg)
+  ![灯泡](hexo博客插入图片相关问题/test2.jpg)
 
   **特别注意：**
 
@@ -106,7 +106,7 @@ tags: 实践 踩坑
 
     ![](hexo博客插入图片相关问题/上传失败_right.png)
 
-
+> [参考链接](<https://blog.csdn.net/xjm850552586/article/details/84101345>)
 
 
 

@@ -79,7 +79,7 @@ theme: yilia
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/weiyueqiang/weiyueqiang.github.io.git
+  repo: git@github.com:weiyueqiang/weiyueqiang.github.io.git
   branch: master
 
 
