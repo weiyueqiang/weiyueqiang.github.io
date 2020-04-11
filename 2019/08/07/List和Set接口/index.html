@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE2.3.1.png">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE3.1.1.png">
 <meta property="og:image" content="http://weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE3.2.1.png">
-<meta property="og:updated_time" content="2020-04-09T06:52:24.887Z">
+<meta property="og:updated_time" content="2020-04-11T00:58:40.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="List和Set接口">
 <meta name="twitter:description" content="本文主要记录Collection中的常用几个子类（List集合、Set集合）。">
@@ -193,282 +193,233 @@
 
 <h1 id="第1章-List接口"><a href="#第1章-List接口" class="headerlink" title="第1章 List接口"></a>第1章 <strong>List接口</strong></h1><h2 id="1-1-List接口介绍"><a href="#1-1-List接口介绍" class="headerlink" title="1.1 List接口介绍"></a>1.1 <strong>List接口介绍</strong></h2><p>查阅API，看List的介绍。有序的 collection（也称为序列）。此接口的用户可以对列表中每个元素的插入位置进行精确地控制。用户可以根据元素的整数索引（在列表中的位置）访问元素，并搜索列表中的元素。与 set 不同，列表通常允许重复的元素。</p>
 <p>看完API，我们总结一下：</p>
-<p>List接口：</p>
-<p>l 它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。</p>
-<p>l 它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。</p>
-<p>l 集合中可以有重复的元素，通过元素的equals方法，来比较是否为重复的元素。</p>
-<p>List接口的常用子类有：</p>
-<p>l ArrayList集合</p>
-<p>l LinkedList集合</p>
+<ul>
+<li><p>List接口：</p>
+<p>它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。</p>
+<p>它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。</p>
+<p>集合中可以有重复的元素，通过元素的equals方法，来比较是否为重复的元素。</p>
+</li>
+</ul>
+<ul>
+<li><p>List接口的常用子类有：</p>
+<p>ArrayList集合</p>
+<p>LinkedList集合</p>
+</li>
+</ul>
 <h2 id="1-2-List接口中常用的方法"><a href="#1-2-List接口中常用的方法" class="headerlink" title="1.2 List接口中常用的方法"></a>1.2 <strong>List接口中常用的方法</strong></h2><p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.2.1.png" alt></p>
-<p>l 增加元素方法</p>
-<p>l add(Object e)：向集合末尾处，添加指定的元素</p>
-<p>l add(int index, Object e)：向集合指定索引处，添加指定的元素，原有元素依次后移</p>
-<p>l 删除元素删除</p>
-<p>l remove(Object e)：将指定元素对象，从集合中删除，返回值为被删除的元素</p>
-<p>l remove(int index)：将指定索引处的元素，从集合中删除，返回值为被删除的元素</p>
-<p>l 替换元素方法</p>
-<p>l set(int index, Object e)：将指定索引处的元素，替换成指定的元素，返回值为替换前的元素</p>
-<p>l 查询元素方法</p>
-<p>l get(int index)：获取指定索引处的元素，并返回该元素</p>
-<p>方法演示：</p>
-<p>List<string> list = <strong>new</strong> ArrayList<string>();</string></string></p>
-<p>//1,添加元素。</p>
-<p>list.add(“小红”);</p>
-<p>list.add(“小梅”);</p>
-<p>list.add(“小强”);</p>
-<p>//2,插入元素。插入元素前的集合[“小红”,”小梅”,”小强”]</p>
-<p>list.add(1, “老王”); //插入元素后的集合[“小红”,”老王”,”小梅”,”小强”]</p>
-<p>//3,删除元素。</p>
-<p>list.remove(2);// 删除元素后的集合[“小红”,”老王”,”小强”]</p>
-<p>//4,修改元素。</p>
-<p>list.set(1, “隔壁老王”);// 修改元素后的集合[“小红”,”隔壁老王”,”小强”]</p>
-<p>Iterator<string> it = list.iterator();</string></p>
-<p><strong>while</strong> (it.hasNext()) {</p>
-<p>String str = it.next();</p>
-<p>System.<em>out</em>.println(str);</p>
-<p>}</p>
-<p>由于List集合拥有索引，因此List集合迭代方式除了使用迭代器之外，还可以使用索引进行迭代。</p>
-<p><strong>for</strong> (<strong>int</strong> i = 0; i &lt; list.size(); i++) {</p>
-<p>String str = list.get(i);</p>
-<p>System.<em>out</em>.println(str);</p>
-<p>}</p>
+<ul>
+<li><p>增加元素方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">add(Object e)：向集合末尾处，添加指定的元素</span><br><span class="line"></span><br><span class="line">add(int index, Object e)：向集合指定索引处，添加指定的元素，原有元素依次后移</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">remove(Object e)：将指定元素对象，从集合中删除，返回值为被删除的元素</span><br><span class="line"></span><br><span class="line">remove(int index)：将指定索引处的元素，从集合中删除，返回值为被删除的元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换元素方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(int index, Object e)：将指定索引处的元素，替换成指定的元素，返回值为替换前的元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询元素方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get(int index)：获取指定索引处的元素，并返回该元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法演示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//1,添加元素。</span></span><br><span class="line"></span><br><span class="line">list.add(<span class="string">"小红"</span>);</span><br><span class="line"></span><br><span class="line">list.add(<span class="string">"小梅"</span>);</span><br><span class="line"></span><br><span class="line">list.add(<span class="string">"小强"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2,插入元素。插入元素前的集合["小红","小梅","小强"]</span></span><br><span class="line"></span><br><span class="line">list.add(<span class="number">1</span>, <span class="string">"老王"</span>); <span class="comment">//插入元素后的集合["小红","老王","小梅","小强"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3,删除元素。</span></span><br><span class="line"></span><br><span class="line">list.remove(<span class="number">2</span>);<span class="comment">// 删除元素后的集合["小红","老王","小强"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//4,修改元素。</span></span><br><span class="line"></span><br><span class="line">list.set(<span class="number">1</span>, <span class="string">"隔壁老王"</span>);<span class="comment">// 修改元素后的集合["小红","隔壁老王","小强"]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">    String str = it.next();</span><br><span class="line"></span><br><span class="line">    System.out.println(str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">由于List集合拥有索引，因此List集合迭代方式除了使用迭代器之外，还可以使用索引进行迭代。</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line"></span><br><span class="line">    String str = list.get(i);</span><br><span class="line"></span><br><span class="line">    System.out.println(str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 <h3 id="1-2-1-Iterator的并发修改异常"><a href="#1-2-1-Iterator的并发修改异常" class="headerlink" title="1.2.1 Iterator的并发修改异常"></a>1.2.1 <strong>Iterator的并发修改异常</strong></h3><p>在list集合迭代元素中，对元素进行判断，一旦条件满足就添加一个新元素。代码如下</p>
-<p><strong>public</strong> <strong>class</strong> IteratorDemo {</p>
-<p>//在list集合迭代元素中，对元素进行判断，一旦条件满足就添加一个新元素</p>
-<p><strong>public</strong> <strong>static</strong> <strong>void</strong> main(String[] args) {</p>
-<p>//创建List集合</p>
-<p>List<string> list = <strong>new</strong> ArrayList<string>();</string></string></p>
-<p>//给集合中添加元素</p>
-<p>list.add(“abc1”);</p>
-<p>list.add(“abc2”);</p>
-<p>list.add(“abc3”);</p>
-<p>list.add(“abc4”);</p>
-<p>//迭代集合，当有元素为”abc2”时，集合加入新元素”itcast”</p>
-<p>Iterator<string> it = list.iterator();</string></p>
-<p><strong>while</strong>(it.hasNext()){</p>
-<p>String str = it.next();</p>
-<p>//判断取出的元素是否是”abc2”，是就添加一个新元素</p>
-<p><strong>if</strong>(“abc2”.equals(str)){</p>
-<p>list.add(“itcast”);// 该操作会导致程序出错</p>
-<p>}</p>
-<p>}</p>
-<p>//打印容器中的元素</p>
-<p>System.<em>out</em>.println(list);</p>
-<p>}</p>
-<p>}</p>
-<p>运行上述代码发生了错误 java.util.ConcurrentModificationException这是什么原因呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">public class IteratorDemo &#123;</span><br><span class="line"></span><br><span class="line">    //在list集合迭代元素中，对元素进行判断，一旦条件满足就添加一个新元素</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //创建List集合</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">        //给集合中添加元素</span><br><span class="line"></span><br><span class="line">        list.add(&quot;abc1&quot;);</span><br><span class="line"></span><br><span class="line">        list.add(&quot;abc2&quot;);</span><br><span class="line"></span><br><span class="line">        list.add(&quot;abc3&quot;);</span><br><span class="line"></span><br><span class="line">        list.add(&quot;abc4&quot;);</span><br><span class="line"></span><br><span class="line">        //迭代集合，当有元素为&quot;abc2&quot;时，集合加入新元素&quot;itcast&quot;</span><br><span class="line"></span><br><span class="line">        Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line"></span><br><span class="line">        while(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">            String str = it.next();</span><br><span class="line"></span><br><span class="line">            //判断取出的元素是否是&quot;abc2&quot;，是就添加一个新元素</span><br><span class="line"></span><br><span class="line">            if(&quot;abc2&quot;.equals(str))&#123;</span><br><span class="line"></span><br><span class="line">            	list.add(&quot;itcast&quot;);// 该操作会导致程序出错</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //打印容器中的元素</span><br><span class="line"></span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>运行上述代码发生了错误 java.util.ConcurrentModificationException这是什么原因呢？</p>
 <p>在迭代过程中，使用了集合的方法对元素进行操作。导致迭代器并不知道集合中的变化，容易引发数据的不确定性。</p>
-<p>并发修改异常解决办法：在迭代时，不要使用集合的方法操作元素。</p>
-<p>那么想要在迭代时对元素操作咋办？通过ListIterator迭代器操作元素是可以的，ListIterator的出现，解决了使用Iterator迭代过程中可能会发生的错误情况。</p>
+</li>
+<li><p>并发修改异常解决办法：在迭代时，不要使用集合的方法操作元素。</p>
+<p>那么想要在迭代时对元素操作咋办？</p>
+<p>通过ListIterator迭代器操作元素是可以的，ListIterator的出现，解决了使用Iterator迭代过程中可能会发生的错误情况。</p>
+</li>
+</ul>
 <h2 id="1-3-List集合存储数据的结构"><a href="#1-3-List集合存储数据的结构" class="headerlink" title="1.3 List集合存储数据的结构"></a>1.3 <strong>List集合存储数据的结构</strong></h2><p>List接口下有很多个集合，它们存储元素所采用的结构方式是不同的，这样就导致了这些集合有它们各自的特点，供给我们在不同的环境下进行使用。数据存储的常用结构有：堆栈、队列、数组、链表。我们分别来了解一下：</p>
-<p>l 堆栈，采用该结构的集合，对元素的存取有如下的特点：</p>
-<p>l 先进后出（即，存进去的元素，要在后它后面的元素依次取出后，才能取出该元素）。例如，子弹压进弹夹，先压进去的子弹在下面，后压进去的子弹在上面，当开枪时，先弹出上面的子弹，然后才能弹出下面的子弹。</p>
-<p>l 栈的入口、出口的都是栈的顶端位置</p>
-<p>l 压栈：就是存元素。即，把元素存储到栈的顶端位置，栈中已有元素依次向栈底方向移动一个位置。</p>
-<p>l 弹栈：就是取元素。即，把栈的顶端位置元素取出，栈中已有元素依次向栈顶方向移动一个位置。</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.1.png" alt="img"></p>
-<p>l 队列，采用该结构的集合，对元素的存取有如下的特点：</p>
-<p>l 先进先出（即，存进去的元素，要在后它前面的元素依次取出后，才能取出该元素）。例如，安检。排成一列，每个人依次检查，只有前面的人全部检查完毕后，才能排到当前的人进行检查。</p>
-<p>l 队列的入口、出口各占一侧。例如，下图中的左侧为入口，右侧为出口。</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.2.png" alt="img"></p>
-<p>l 数组，采用该结构的集合，对元素的存取有如下的特点：</p>
-<p>l 查找元素快：通过索引，可以快速访问指定位置的元素</p>
-<p>l 增删元素慢：</p>
-<p>l <strong>指定索引位置增加元素</strong>：需要创建一个新数组，将指定新元素存储在指定索引位置，再把原数组元素根据索引，复制到新数组对应索引的位置。如下图</p>
-<p>l <strong>指定索引位置删除元素：</strong>需要创建一个新数组，把原数组元素根据索引，复制到新数组对应索引的位置，原数组中指定索引位置元素不复制到新数组中。如下图</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.3.png" alt="img"></p>
-<p>l 链表，采用该结构的集合，对元素的存取有如下的特点：</p>
-<p>l 多个节点之间，通过地址进行连接。例如，多个人手拉手，每个人使用自己的右手拉住下个人的左手，依次类推，这样多个人就连在一起了。</p>
-<p>l 查找元素慢：想查找某个元素，需要通过连接的节点，依次向后查找指定元素</p>
-<p>l 增删元素快：</p>
-<p>l 增加元素：操作如左图，只需要修改连接下个元素的地址即可。</p>
-<p>l 删除元素：操作如右图，只需要修改连接下个元素的地址即可。</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.4.png" alt="img"></p>
+<ul>
+<li><p>堆栈，采用该结构的集合，对元素的存取有如下的特点：</p>
+<ul>
+<li><p>先进后出（即，存进去的元素，要在后它后面的元素依次取出后，才能取出该元素）。例如，子弹压进弹夹，先压进去的子弹在下面，后压进去的子弹在上面，当开枪时，先弹出上面的子弹，然后才能弹出下面的子弹。</p>
+</li>
+<li><p>栈的入口、出口的都是栈的顶端位置</p>
+</li>
+<li><p>压栈：就是存元素。即，把元素存储到栈的顶端位置，栈中已有元素依次向栈底方向移动一个位置。</p>
+</li>
+<li><p>弹栈：就是取元素。即，把栈的顶端位置元素取出，栈中已有元素依次向栈顶方向移动一个位置。</p>
+</li>
+</ul>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.1.png" alt="img"></p>
+</li>
+</ul>
+<ul>
+<li><p>队列，采用该结构的集合，对元素的存取有如下的特点：</p>
+<ul>
+<li><p>先进先出（即，存进去的元素，要在后它前面的元素依次取出后，才能取出该元素）。例如，安检。排成一列，每个人依次检查，只有前面的人全部检查完毕后，才能排到当前的人进行检查。</p>
+</li>
+<li><p>队列的入口、出口各占一侧。例如，下图中的左侧为入口，右侧为出口。</p>
+</li>
+</ul>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.2.png" alt="img"></p>
+</li>
+</ul>
+<ul>
+<li><p>数组，采用该结构的集合，对元素的存取有如下的特点：</p>
+<ul>
+<li><p>查找元素快：通过索引，可以快速访问指定位置的元素</p>
+</li>
+<li><p>增删元素慢</p>
+</li>
+<li><p><strong>指定索引位置增加元素</strong>：需要创建一个新数组，将指定新元素存储在指定索引位置，再把原数组元素根据索引，复制到新数组对应索引的位置。如下图</p>
+</li>
+<li><p><strong>指定索引位置删除元素：</strong>需要创建一个新数组，把原数组元素根据索引，复制到新数组对应索引的位置，原数组中指定索引位置元素不复制到新数组中。如下图</p>
+</li>
+</ul>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.3.png" alt="img"></p>
+</li>
+</ul>
+<ul>
+<li><p>链表，采用该结构的集合，对元素的存取有如下的特点：</p>
+<ul>
+<li>多个节点之间，通过地址进行连接。例如，多个人手拉手，每个人使用自己的右手拉住下个人的左手，依次类推，这样多个人就连在一起了。</li>
+<li>查找元素慢：想查找某个元素，需要通过连接的节点，依次向后查找指定元素</li>
+<li>增删元素快：</li>
+<li>增加元素：操作如左图，只需要修改连接下个元素的地址即可。</li>
+<li>删除元素：操作如右图，只需要修改连接下个元素的地址即可。</li>
+</ul>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.3.4.png" alt="img"></p>
+</li>
+</ul>
 <h2 id="1-4-ArrayList集合"><a href="#1-4-ArrayList集合" class="headerlink" title="1.4 ArrayList集合"></a>1.4 <strong>ArrayList集合</strong></h2><p>ArrayList集合数据存储的结构是数组结构。元素增删慢，查找快，由于日常开发中使用最多的功能为查询数据、遍历数据，所以ArrayList是最常用的集合。</p>
 <p>许多程序员开发时非常随意地使用ArrayList完成任何需求，并不严谨，这种用法是不提倡的。</p>
 <h2 id="1-5-LinkedList集合"><a href="#1-5-LinkedList集合" class="headerlink" title="1.5 LinkedList集合"></a>1.5 <strong>LinkedList集合</strong></h2><p>LinkedList集合数据存储的结构是链表结构。方便元素添加、删除的集合。实际开发中对一个集合元素的添加与删除经常涉及到首尾操作，而LinkedList提供了大量首尾操作的方法。如下图</p>
 <p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.5.1.png" alt="img"></p>
 <p>LinkedList是List的子类，List中的方法LinkedList都是可以使用，这里就不做详细介绍，我们只需要了解LinkedList的特有方法即可。在开发时，LinkedList集合也可以作为堆栈，队列的结构使用。</p>
 <p>方法演示：</p>
-<p>LinkedList<string> link = <strong>new</strong> LinkedList<string>();</string></string></p>
-<p>//添加元素</p>
-<p>link.addFirst(“abc1”);</p>
-<p>link.addFirst(“abc2”);</p>
-<p>link.addFirst(“abc3”);</p>
-<p>//获取元素</p>
-<p>System.<em>out</em>.println(link.getFirst());</p>
-<p>System.<em>out</em>.println(link.getLast());</p>
-<p>//删除元素</p>
-<p>System.<em>out</em>.println(link.removeFirst());</p>
-<p>System.<em>out</em>.println(link.removeLast());</p>
-<p><strong>while</strong>(!link.isEmpty()){ //判断集合是否为空</p>
-<p>System.<em>out</em>.println(link.pop()); //弹出集合中的栈顶元素</p>
-<p>​       }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">LinkedList&lt;String&gt; link = new LinkedList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">//添加元素</span><br><span class="line"></span><br><span class="line">link.addFirst(&quot;abc1&quot;);</span><br><span class="line"></span><br><span class="line">link.addFirst(&quot;abc2&quot;);</span><br><span class="line"></span><br><span class="line">link.addFirst(&quot;abc3&quot;);</span><br><span class="line"></span><br><span class="line">//获取元素</span><br><span class="line"></span><br><span class="line">System.out.println(link.getFirst());</span><br><span class="line"></span><br><span class="line">System.out.println(link.getLast());</span><br><span class="line"></span><br><span class="line">//删除元素</span><br><span class="line"></span><br><span class="line">System.out.println(link.removeFirst());</span><br><span class="line"></span><br><span class="line">System.out.println(link.removeLast());</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">while(!link.isEmpty())&#123; //判断集合是否为空</span><br><span class="line"></span><br><span class="line">	System.out.println(link.pop()); //弹出集合中的栈顶元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="1-6-Vector集合"><a href="#1-6-Vector集合" class="headerlink" title="1.6 Vector集合"></a>1.6 <strong>Vector集合</strong></h2><p>Vector集合数据存储的结构是数组结构，为JDK中最早提供的集合。Vector中提供了一个独特的取出方式，就是枚举Enumeration，它其实就是早期的迭代器。此接口Enumeration的功能与 Iterator 接口的功能是类似的。Vector集合已被ArrayList替代。枚举Enumeration已被迭代器Iterator替代。</p>
-<p>l Vector常见的方法：</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.6.1.png" alt="img"></p>
-<p>l Enumeration枚举常见的方法：</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.6.2.png" alt="img"></p>
-<p>l Vector集合对ArrayList集合使用的对比</p>
-<p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.6.3.png" alt="img"></p>
+<ul>
+<li><p>Vector常见的方法：</p>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.6.1.png" alt="img"></p>
+</li>
+</ul>
+<ul>
+<li><p>Enumeration枚举常见的方法：</p>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.6.2.png" alt="img"></p>
+</li>
+</ul>
+<ul>
+<li><p>Vector集合对ArrayList集合使用的对比</p>
+<p><img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE1.6.3.png" alt="img"></p>
+</li>
+</ul>
 <h1 id="第2章-Set接口"><a href="#第2章-Set接口" class="headerlink" title="第2章 Set接口"></a>第2章 <strong>Set接口</strong></h1><p>学习Collection接口时，记得Collection中可以存放重复元素，也可以不存放重复元素，那么我们知道List中是可以存放重复元素的。那么不重复元素给哪里存放呢？那就是Set接口，它里面的集合，所存储的元素就是不重复的。</p>
 <h2 id="2-1-Set接口介绍"><a href="#2-1-Set接口介绍" class="headerlink" title="2.1 Set接口介绍"></a>2.1 <strong>Set接口介绍</strong></h2><p>查阅Set集合的API介绍，通过元素的equals方法，来判断是否为重复元素，</p>
 <h2 id="2-2-HashSet集合介绍"><a href="#2-2-HashSet集合介绍" class="headerlink" title="2.2 HashSet集合介绍"></a>2.2 <strong>HashSet集合介绍</strong></h2><p>查阅HashSet集合的API介绍：此类实现Set接口，由哈希表支持（实际上是一个 HashMap集合）。HashSet集合不能保证的迭代顺序与元素存储顺序相同。</p>
 <p>HashSet集合，采用哈希表结构存储数据，保证元素唯一性的方式依赖于：hashCode()与equals()方法。</p>
-<h2 id="2-3-HashSet集合存储数据的结构（哈希表）"><a href="#2-3-HashSet集合存储数据的结构（哈希表）" class="headerlink" title="2.3 HashSet集合存储数据的结构（哈希表）"></a>2.3 <strong>HashSet集合存储数据的结构（哈希表）</strong></h2><p>什么是哈希表呢？</p>
+<h2 id="2-3-HashSet集合存储数据的结构（哈希表）"><a href="#2-3-HashSet集合存储数据的结构（哈希表）" class="headerlink" title="2.3 HashSet集合存储数据的结构（哈希表）"></a>2.3 <strong>HashSet集合存储数据的结构（哈希表）</strong></h2><ul>
+<li><p>什么是哈希表呢？</p>
 <p>哈希表底层使用的也是数组机制，数组中也存放对象，而这些对象往数组中存放时的位置比较特殊，当需要把这些对象给数组中存放时，那么会根据这些对象的特有数据结合相应的算法，计算出这个对象在数组中的位置，然后把这个对象存放在数组中。而这样的数组就称为哈希数组，即就是哈希表。</p>
 <p>当向哈希表中存放元素时，需要根据元素的特有数据结合相应的算法，这个算法其实就是Object类中的hashCode方法。由于任何对象都是Object类的子类，所以任何对象有拥有这个方法。即就是在给哈希表中存放对象时，会调用对象的hashCode方法，算出对象在表中的存放位置，这里需要注意，如果两个对象hashCode方法算出结果一样，这样现象称为哈希冲突，这时会调用对象的equals方法，比较这两个对象是不是同一个对象，如果equals方法返回的是true，那么就不会把第二个对象存放在哈希表中，如果返回的是false，就会把这个值存放在哈希表中。</p>
-<p>总结：保证HashSet集合元素的唯一，其实就是根据对象的hashCode和equals方法来决定的。如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
+</li>
+<li><p>总结：保证HashSet集合元素的唯一，其实就是根据对象的hashCode和equals方法来决定的。如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
 <p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE2.3.1.png" alt="img"></p>
+</li>
+</ul>
 <h2 id="2-4-HashSet存储JavaAPI中的类型元素"><a href="#2-4-HashSet存储JavaAPI中的类型元素" class="headerlink" title="2.4 HashSet存储JavaAPI中的类型元素"></a>2.4 <strong>HashSet存储JavaAPI中的类型元素</strong></h2><p>给HashSet中存储JavaAPI中提供的类型元素时，不需要重写元素的hashCode和equals方法，因为这两个方法，在JavaAPI的每个类中已经重写完毕，如String类、Integer类等。</p>
-<p>l 创建HashSet集合，存储String对象。</p>
-<p><strong>public</strong> <strong>class</strong> HashSetDemo {</p>
-<p><strong>public</strong> <strong>static</strong> <strong>void</strong> main(String[] args) {</p>
-<p>//创建HashSet对象</p>
-<p>HashSet<string> hs = <strong>new</strong> HashSet<string>();</string></string></p>
-<p>//给集合中添加自定义对象</p>
-<p>hs.add(“zhangsan”);</p>
-<p>hs.add(“lisi”);</p>
-<p>hs.add(“wangwu”);</p>
-<p>hs.add(“zhangsan”);</p>
-<p>//取出集合中的每个元素</p>
-<p>Iterator<string> it = hs.iterator();</string></p>
-<p><strong>while</strong>(it.hasNext()){</p>
-<p>String s = it.next();</p>
-<p>System.<em>out</em>.println(s);</p>
-<p>}</p>
-<p>}</p>
-<p>}</p>
+<p>创建HashSet集合，存储String对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建HashSet对象</span></span><br><span class="line"></span><br><span class="line">        HashSet&lt;String&gt; hs = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//给集合中添加自定义对象</span></span><br><span class="line"></span><br><span class="line">        hs.add(<span class="string">"zhangsan"</span>);</span><br><span class="line"></span><br><span class="line">        hs.add(<span class="string">"lisi"</span>);</span><br><span class="line"></span><br><span class="line">        hs.add(<span class="string">"wangwu"</span>);</span><br><span class="line"></span><br><span class="line">        hs.add(<span class="string">"zhangsan"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//取出集合中的每个元素</span></span><br><span class="line"></span><br><span class="line">        Iterator&lt;String&gt; it = hs.iterator();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">            String s = it.next();</span><br><span class="line"></span><br><span class="line">            System.out.println(s);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>输出结果如下，说明集合中不能存储重复元素：</p>
-<p>wangwu</p>
-<p>lisi</p>
-<p>zhangsan</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wangwu</span><br><span class="line"></span><br><span class="line">lisi</span><br><span class="line"></span><br><span class="line">zhangsan</span><br></pre></td></tr></table></figure>
+
 <h2 id="2-5-HashSet存储自定义类型元素"><a href="#2-5-HashSet存储自定义类型元素" class="headerlink" title="2.5 HashSet存储自定义类型元素"></a>2.5 <strong>HashSet存储自定义类型元素</strong></h2><p>给HashSet中存放自定义类型元素时，需要重写对象中的hashCode和equals方法，建立自己的比较方式，才能保证HashSet集合中的对象唯一</p>
-<p>l 创建自定义对象Student</p>
-<p><strong>public</strong> <strong>class</strong> Student {</p>
-<p><strong>private</strong> String name;</p>
-<p><strong>private</strong> <strong>int</strong> age;</p>
-<p><strong>public</strong> Student(String name, <strong>int</strong> age) {</p>
-<p><strong>super</strong>();</p>
-<p><strong>this</strong>.name = name;</p>
-<p><strong>this</strong>.age = age;</p>
-<p>}</p>
-<p><strong>public</strong> String getName() {</p>
-<p><strong>return</strong> name;</p>
-<p>}</p>
-<p><strong>public</strong> <strong>void</strong> setName(String name) {</p>
-<p><strong>this</strong>.name = name;</p>
-<p>}</p>
-<p><strong>public</strong> <strong>int</strong> getAge() {</p>
-<p><strong>return</strong> age;</p>
-<p>}</p>
-<p><strong>public</strong> <strong>void</strong> setAge(<strong>int</strong> age) {</p>
-<p><strong>this</strong>.age = age;</p>
-<p>}</p>
-<p>@Override</p>
-<p><strong>public</strong> String toString() {</p>
-<p><strong>return</strong> “Student [name=” + name + “, age=” + age + “]”;</p>
-<p>}</p>
-<p>@Override</p>
-<p><strong>public</strong> <strong>int</strong> hashCode() {</p>
-<p><strong>final</strong> <strong>int</strong> prime = 31;</p>
-<p><strong>int</strong> result = 1;</p>
-<p>result = prime * result + age;</p>
-<p>result = prime * result + ((name == <strong>null</strong>) ? 0 : name.hashCode());</p>
-<p><strong>return</strong> result;</p>
-<p>}</p>
-<p>@Override</p>
-<p><strong>public</strong> <strong>boolean</strong> equals(Object obj) {</p>
-<p><strong>if</strong> (<strong>this</strong> == obj)</p>
-<p><strong>return</strong> <strong>true</strong>;</p>
-<p><strong>if</strong>(!(obj <strong>instanceof</strong> Student)){</p>
-<p><strong>System.out.println(</strong>“类型错误”<strong>)</strong>;</p>
-<p><strong>return</strong> <strong>false</strong>;</p>
-<p>}</p>
-<p>Student other = (Student) obj;</p>
-<p><strong>return</strong> <strong>this</strong>.age ==  other.age &amp;&amp; <strong>this</strong>.name.equals(other.name);</p>
-<p>}</p>
-<p>}</p>
-<p>l 创建HashSet集合，存储Student对象。</p>
-<p><strong>public</strong> <strong>class</strong> HashSetDemo {</p>
-<p><strong>public</strong> <strong>static</strong> <strong>void</strong> main(String[] args) {</p>
-<p>//创建HashSet对象</p>
-<p>HashSet hs = <strong>new</strong> HashSet();</p>
-<p>//给集合中添加自定义对象</p>
-<p>hs.add(<strong>new</strong> Student(“zhangsan”,21));</p>
-<p>hs.add(<strong>new</strong> Student(“lisi”,22));</p>
-<p>hs.add(<strong>new</strong> Student(“wangwu”,23));</p>
-<p>hs.add(<strong>new</strong> Student(“zhangsan”,21));</p>
-<p>//取出集合中的每个元素</p>
-<p>Iterator it = hs.iterator();</p>
-<p><strong>while</strong>(it.hasNext()){</p>
-<p>Student s = (Student)it.next();</p>
-<p>System.<em>out</em>.println(s);</p>
-<p>}</p>
-<p>}</p>
-<p>}</p>
+<ul>
+<li><p>创建自定义对象Student</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public Student(String name, int age) &#123;</span><br><span class="line"></span><br><span class="line">        super();</span><br><span class="line"></span><br><span class="line">        this.name = name;</span><br><span class="line"></span><br><span class="line">        this.age = age;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line"></span><br><span class="line">   		return name;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line"></span><br><span class="line">    	this.name = name;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line"></span><br><span class="line">    	return age;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line"></span><br><span class="line">    	this.age = age;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line"></span><br><span class="line">    public String toString() &#123;</span><br><span class="line"></span><br><span class="line">    	return &quot;Student [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line"></span><br><span class="line">    public int hashCode() &#123;</span><br><span class="line"></span><br><span class="line">        final int prime = 31;</span><br><span class="line"></span><br><span class="line">        int result = 1;</span><br><span class="line"></span><br><span class="line">        result = prime * result + age;</span><br><span class="line"></span><br><span class="line">        result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line"></span><br><span class="line">        return result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line"></span><br><span class="line">    public boolean equals(Object obj) &#123;</span><br><span class="line"></span><br><span class="line">        if (this == obj)</span><br><span class="line"></span><br><span class="line">        return true;</span><br><span class="line"></span><br><span class="line">        if(!(obj instanceof Student))&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;类型错误&quot;);</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Student other = (Student) obj;</span><br><span class="line"></span><br><span class="line">    	return this.age ==  other.age &amp;&amp; this.name.equals(other.name);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>创建HashSet集合，存储Student对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class HashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //创建HashSet对象</span><br><span class="line"></span><br><span class="line">        HashSet hs = new HashSet();</span><br><span class="line"></span><br><span class="line">        //给集合中添加自定义对象</span><br><span class="line"></span><br><span class="line">        hs.add(new Student(&quot;zhangsan&quot;,21));</span><br><span class="line"></span><br><span class="line">        hs.add(new Student(&quot;lisi&quot;,22));</span><br><span class="line"></span><br><span class="line">        hs.add(new Student(&quot;wangwu&quot;,23));</span><br><span class="line"></span><br><span class="line">        hs.add(new Student(&quot;zhangsan&quot;,21));</span><br><span class="line"></span><br><span class="line">        //取出集合中的每个元素</span><br><span class="line"></span><br><span class="line">        Iterator it = hs.iterator();</span><br><span class="line"></span><br><span class="line">        while(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">            Student s = (Student)it.next();</span><br><span class="line"></span><br><span class="line">            System.out.println(s);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>输出结果如下，说明集合中不能存储重复元素：</p>
-<p>Student [name=lisi, age=22]</p>
-<p>Student [name=zhangsan, age=21]</p>
-<p>Student [name=wangwu, age=23]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Student [name=lisi, age=22]</span><br><span class="line"></span><br><span class="line">Student [name=zhangsan, age=21]</span><br><span class="line"></span><br><span class="line">Student [name=wangwu, age=23]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 <h2 id="2-6-LinkedHashSet介绍"><a href="#2-6-LinkedHashSet介绍" class="headerlink" title="2.6 LinkedHashSet介绍"></a>2.6 <strong>LinkedHashSet介绍</strong></h2><p>我们知道HashSet保证元素唯一，可是元素存放进去是没有顺序的，那么我们要保证有序，怎么办呢？</p>
 <p>在HashSet下面有一个子类LinkedHashSet，它是链表和哈希表组合的一个数据存储结构。</p>
 <p>演示代码如下：</p>
-<p><strong>public</strong> <strong>class</strong> LinkedHashSetDemo {</p>
-<p><strong>public</strong> <strong>static</strong> <strong>void</strong> main(String[] args) {</p>
-<p>Set<string> set = <strong>new</strong> LinkedHashSet<string>();</string></string></p>
-<p>set.add(“bbb”);</p>
-<p>set.add(“aaa”);</p>
-<p>set.add(“abc”);</p>
-<p>set.add(“bbc”);</p>
-<p>Iterator it = set.iterator();</p>
-<p><strong>while</strong> (it.hasNext()) {</p>
-<p>System.<em>out</em>.println(it.next());</p>
-<p>}</p>
-<p>}</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedHashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        Set&lt;String&gt; set = new LinkedHashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">        set.add(&quot;bbb&quot;);</span><br><span class="line"></span><br><span class="line">        set.add(&quot;aaa&quot;);</span><br><span class="line"></span><br><span class="line">        set.add(&quot;abc&quot;);</span><br><span class="line"></span><br><span class="line">        set.add(&quot;bbc&quot;);</span><br><span class="line"></span><br><span class="line">        Iterator it = set.iterator();</span><br><span class="line"></span><br><span class="line">        while (it.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">        	System.out.println(it.next());</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>输出结果如下，LinkedHashSet集合保证元素的存入和取出的顺序：</p>
-<p>bbb</p>
-<p>aaa</p>
-<p>abc</p>
-<p>bbc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bbb</span><br><span class="line"></span><br><span class="line">aaa</span><br><span class="line"></span><br><span class="line">abc</span><br><span class="line"></span><br><span class="line">bbc</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="第3章-判断集合元素唯一的原理"><a href="#第3章-判断集合元素唯一的原理" class="headerlink" title="第3章 判断集合元素唯一的原理"></a>第3章 <strong>判断集合元素唯一的原理</strong></h1><h2 id="3-1-ArrayList的contains方法判断元素是否重复原理"><a href="#3-1-ArrayList的contains方法判断元素是否重复原理" class="headerlink" title="3.1 ArrayList的contains方法判断元素是否重复原理"></a>3.1 <strong>ArrayList的contains方法判断元素是否重复原理</strong></h2><p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE3.1.1.png" alt="img"></p>
 <p>ArrayList的contains方法会使用调用方法时，传入的元素的equals方法依次与集合中的旧元素所比较，从而根据返回的布尔值判断是否有重复元素。此时，当ArrayList存放自定义类型时，由于自定义类型在未重写equals方法前，判断是否重复的依据是地址值，所以如果想根据内容判断是否为重复元素，需要重写元素的equals方法。</p>
 <h2 id="3-2-HashSet的add-contains等方法判断元素是否重复原理"><a href="#3-2-HashSet的add-contains等方法判断元素是否重复原理" class="headerlink" title="3.2 HashSet的add/contains等方法判断元素是否重复原理"></a>3.2 <strong>HashSet的add/contains等方法判断元素是否重复原理</strong></h2><p> <img src="//weiyueqiang.github.io/2019/08/07/List和Set接口/%E5%9B%BE3.2.1.png" alt="img"></p>
 <p>Set集合不能存放重复元素，其添加方法在添加时会判断是否有重复元素，有重复不添加，没重复则添加。</p>
 <p>HashSet集合由于是无序的，其判断唯一的依据是元素类型的hashCode与equals方法的返回结果。规则如下：</p>
-<p>先判断新元素与集合内已经有的旧元素的HashCode值</p>
-<p>l 如果不同，说明是不同元素，添加到集合。</p>
-<p>l 如果相同，再判断equals比较结果。返回true则相同元素；返回false则不同元素，添加到集合。</p>
+<ul>
+<li><p>先判断新元素与集合内已经有的旧元素的HashCode值</p>
+</li>
+<li><p>如果不同，说明是不同元素，添加到集合。</p>
+</li>
+<li><p>如果相同，再判断equals比较结果。返回true则相同元素；返回false则不同元素，添加到集合。</p>
+</li>
+</ul>
 <p>所以，使用HashSet存储自定义类型，如果没有重写该类的hashCode与equals方法，则判断重复时，使用的是地址值，如果想通过内容比较元素是否相同，需要重写该元素类的hashcode与equals方法。</p>
 <h1 id="第4章-总结"><a href="#第4章-总结" class="headerlink" title="第4章 总结"></a>第4章 <strong>总结</strong></h1><h2 id="4-1-知识点总结"><a href="#4-1-知识点总结" class="headerlink" title="4.1 知识点总结"></a>4.1 <strong>知识点总结</strong></h2><p>l List与Set集合的区别？</p>
-<p>List:</p>
-<p>  它是一个有序的集合(元素存与取的顺序相同)</p>
-<p>  它可以存储重复的元素</p>
-<p>  Set:</p>
-<p>  它是一个无序的集合(元素存与取的顺序可能不同)</p>
-<p>  它不能存储重复的元素</p>
-<p>l List集合中的特有方法</p>
-<p>l void add(int index, Object element) 将指定的元素，添加到该集合中的指定位置上</p>
-<p>l Object get(int index)返回集合中指定位置的元素。</p>
-<p>l Object remove(int index) 移除列表中指定位置的元素, 返回的是被移除的元素</p>
-<p>l Object set(int index, Object element)用指定元素替换集合中指定位置的元素,返回值的更新前的元素</p>
-<p>l ArrayList:</p>
+<ul>
+<li><p>List:</p>
+<p>它是一个有序的集合(元素存与取的顺序相同)</p>
+<p> 它可以存储重复的元素</p>
+</li>
+<li><p>Set:</p>
+<p>它是一个无序的集合(元素存与取的顺序可能不同)</p>
+<p>它不能存储重复的元素</p>
+</li>
+<li><p>List集合中的特有方法</p>
+<ul>
+<li>void add(int index, Object element) 将指定的元素，添加到该集合中的指定位置上</li>
+<li>Object get(int index)返回集合中指定位置的元素。</li>
+<li>Object remove(int index) 移除列表中指定位置的元素, 返回的是被移除的元素</li>
+<li>Object set(int index, Object element)用指定元素替换集合中指定位置的元素,返回值的更新前的元素</li>
+</ul>
+</li>
+<li><p>ArrayList:</p>
 <p>底层数据结构是数组，查询快，增删慢</p>
-<p>l LinkedList:</p>
+</li>
+<li><p>LinkedList:</p>
 <p>底层数据结构是链表，查询慢，增删快</p>
-<p>l HashSet:</p>
+</li>
+<li><p>HashSet:</p>
 <p>元素唯一，不能重复</p>
 <p>底层结构是 哈希表结构</p>
 <p>元素的存与取的顺序不能保证一致</p>
 <p>如何保证元素的唯一的？</p>
 <p>重写hashCode() 与 equals()方法</p>
-<p>l LinkedHashSet:</p>
+</li>
+<li><p>LinkedHashSet:</p>
 <p>元素唯一不能重复</p>
 <p>底层结构是 哈希表结构 + 链表结构</p>
 <p>元素的存与取的顺序一致</p>
-<h2 id="enjoy-yourself"><a href="#enjoy-yourself" class="headerlink" title="enjoy yourself !"></a>enjoy yourself !</h2>
+</li>
+</ul>
+<p><br><br></p>
+<h2 id="Enjoy-Yourself"><a href="#Enjoy-Yourself" class="headerlink" title="Enjoy Yourself !"></a>Enjoy Yourself !</h2>
       
 
       
